@@ -55,9 +55,8 @@ if (productId.color == "") {
 
     } else {
 
-        // envoi dans le localStorage et redirection vers la page panier 
+        // envoi dans le localStorage et redirection vers le panier 
 
-        
         window.location.assign("cart.html")
     }
 })
