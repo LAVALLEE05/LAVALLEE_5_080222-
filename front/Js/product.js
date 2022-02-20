@@ -16,4 +16,21 @@ fetch("http://localhost:3000/api/products/" + id)
         document.querySelector("#colors").innerHTML += `<option value="${productSelectColor}">${productSelectColor}</option>`
     };
 
-//  à enproduit a envoyer dans le localStorage au click
+//  produit a envoyer dans le localStorage au click
+
+document.querySelector("#addToCart").addEventListener("click", function () {
+
+    const colors = document.getElementById('colors').value
+    const quantity = document.getElementById('quantity').value
+    const quantityNumber = parseInt(quantity)
+
+    const productId = {
+        trueId : id,
+        id: id + "_" + colors,
+        name: product.name,
+        color: colors,
+        quantity: quantityNumber,
+        price: product.price,
+        image: product.imageUrl,
+        altTxt: product.altTxt,
+    }
