@@ -52,5 +52,13 @@ if (productId.color == "") {
     }
        `)
     alert('merci de choisir une quantitée entre 1 et 100')
-    
+
     } else {
+
+        // envoi dans le localStorage et redirection vers la page panier 
+
+        
+        window.location.assign("cart.html")
+    }
+})
+});
