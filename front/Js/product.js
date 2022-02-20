@@ -15,3 +15,5 @@ fetch("http://localhost:3000/api/products/" + id)
     for (let productSelectColor of product.colors) {
         document.querySelector("#colors").innerHTML += `<option value="${productSelectColor}">${productSelectColor}</option>`
     };
+
+//  à enproduit a envoyer dans le localStorage au click
