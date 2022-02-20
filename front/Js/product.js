@@ -45,11 +45,12 @@ if (productId.color == "") {
        `)
     alert('merci de choisir une couleur')
 
-} else if (productId.quantity <= 0) {
+    } else if (productId.quantity <= 0) {
     const warning = document.querySelector(".item__content__settings").insertAdjacentHTML("afterbegin", `<style>
     .item__content__settings{
         background-color:red;
     }
        `)
     alert('merci de choisir une quantitée entre 1 et 100')
-}
+    
+    } else {
