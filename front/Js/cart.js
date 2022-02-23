@@ -30,3 +30,13 @@ function addcart(product) {
     savecart(cart)
 }
 
+// suppression du ou des produit(s) choisis du localStorage 
+
+function removeFromcart(product) {
+    let cart = getcart()
+    // a tester 
+    // cart.filter(p => p.id !== product.id && p => p.color !== product.color)
+    cart = cart.filter(p => p.id != product.id)
+    savecart(cart)
+}
+
