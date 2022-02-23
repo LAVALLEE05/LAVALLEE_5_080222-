@@ -40,3 +40,16 @@ function removeFromcart(product) {
     savecart(cart)
 }
 
+// recupération total du ou des produit(s) du localStorage 
+
+function getNumberProduct() {
+    let cart = getcart()
+    let number = 0
+    for (let product of cart) {
+        number += product.quantity
+    }
+    return number
+}
+
+
+
