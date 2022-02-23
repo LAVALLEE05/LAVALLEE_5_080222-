@@ -51,5 +51,31 @@ function getNumberProduct() {
     return number
 }
 
+// affichage de la quantité totale 
+
+function setTotalQuantity() {
+    let totalQuantity = document.getElementById('totalQuantity')
+    let newQuantity = document.createTextNode(`${getNumberProduct()}`)
+    if (newQuantity != undefined) {
+        totalQuantity.replaceChild(newQuantity, totalQuantity.childNodes[0])
+
+    } else {
+        totalQuantity.appendChild(newQuantity)
+    }
+}
+
+// affichage du prix total
+
+function setTotalPrice() {
+    let totalPrice = document.getElementById('totalPrice')
+    let newPrice = document.createTextNode(`${getTotalPrice()}`)
+    if (newPrice != undefined) {
+        totalPrice.replaceChild(newPrice, totalPrice.childNodes[0])
+    } else {
+        totalPrice.appendChild(newPrice)
+    }
+}
+
+
 
 
