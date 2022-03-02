@@ -43,3 +43,16 @@ document.querySelectorAll(".deleteItem").forEach(item => item.addEventListener("
     removeFromBasket(product)
     window.location.assign("cart.html")
 }));
+
+// changement du choix du produit
+
+document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener("change", (e) => {
+    let quantity = e.target.closest('.itemQuantity').value
+    let quantityNumber = parseInt(quantity)
+    let deletItem = e.target.closest('[data-id]')
+    let product = deletItem.dataset
+
+    productID = {
+        id: product.id,
+        quantity: quantityNumber
+    }
