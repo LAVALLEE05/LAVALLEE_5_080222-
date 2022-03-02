@@ -88,7 +88,33 @@ function addQuantity(product) {
     setTotalPrice()
 }
 
+// formulaire de contact
 
+function validNameCity (inputName){
+    let nameRegexp = new RegExp (/^[a-z ,.'-]+$/i)
 
+    let testName = nameRegexp.test(inputName.value)
+    let messageName = inputName.nextElementSibling
+    if(testName){
+        messageName.innerHTML = ""
+        return true
+    }else{
+        messageName.innerHTML = "Invalide"
+        return false
+    }
+}
 
+// regex mail 
 
+function validMail (inputMail){
+    let mailRegexp = new RegExp (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i)
+    let testMail = mailRegexp.test(inputMail.value)
+    let messageMail = inputMail.nextElementSibling
+    if(testMail){
+        messageMail.innerHTML = ""
+        return true
+    }else{
+        messageMail.innerHTML = "Invalide"
+        return false
+    }
+}
