@@ -8,7 +8,7 @@ if(product.length ==  0){
 
 // mise à disposition du produit
 
-for (let product ) {
+for (let product of cart) {
 
     document.querySelector("#cart__items").innerHTML +=
 
@@ -33,7 +33,7 @@ for (let product ) {
                               </div>
                             </div>
                           </article>`
-}
+}                     
 
 // suppression du produit au click 
 
@@ -137,3 +137,4 @@ form.addEventListener("submit", function(e) {
         window.location.assign("confirmation.html")
     }          
 })
+
