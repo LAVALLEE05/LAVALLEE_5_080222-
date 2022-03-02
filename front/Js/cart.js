@@ -72,3 +72,28 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         addQuantity(productID)
     }
 }))
+
+// affichage de la quantité et du prix total
+
+setTotalQuantity()
+setTotalPrice()
+
+// formulaire de contact
+
+let form = document.querySelector('.cart__order__form')
+
+form.firstName.addEventListener('change', function(){ 
+validNameCity(this)
+})
+
+form.lastName.addEventListener('change', function(){ 
+validNameCity(this)
+})
+
+form.city.addEventListener('change', function(){ 
+    validNameCity(this)
+})
+
+form.email.addEventListener('change', function(){ 
+    validMail(this)
+})
