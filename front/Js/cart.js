@@ -6,7 +6,8 @@ if(product.length ==  0){
     alert("votre panier est vide")
 }
 
-// création des éléments 
+// mise à disposition du produit
+
 for (let product ) {
 
     document.querySelector("#cart__items").innerHTML +=
@@ -33,3 +34,12 @@ for (let product ) {
                             </div>
                           </article>`
 }
+
+// suppression du produit au click 
+
+document.querySelectorAll(".deleteItem").forEach(item => item.addEventListener("click", (e) => {
+    let deletItem = e.target.closest('[data-id]')
+    let product = deletItem.dataset
+    removeFromBasket(product)
+    window.location.assign("cart.html")
+}));
