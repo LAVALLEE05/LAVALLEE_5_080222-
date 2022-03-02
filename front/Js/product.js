@@ -1,3 +1,4 @@
+
 // recupération du produit issu de L'url
 
 let id = (new URL(window.location).searchParams.get("id"));
