@@ -56,3 +56,13 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         id: product.id,
         quantity: quantityNumber
     }
+
+// suppression du produit en cas d'anomalie 
+
+    if (quantityNumber <= 0 ){
+        removeFromBasket(productID)
+        window.location.assign("cart.html")
+    } else if (quantityNumber > 100){
+        removeFromBasket(productID)
+        window.location.assign("cart.html")
+    }else {
