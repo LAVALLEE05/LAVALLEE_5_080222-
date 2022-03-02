@@ -97,3 +97,43 @@ form.city.addEventListener('change', function(){
 form.email.addEventListener('change', function(){ 
     validMail(this)
 })
+
+// si le formulaire est valide la redirection se fais sur la page de confirmation
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault()
+    const firstName = document.getElementById('firstName').value
+    const lastName = document.getElementById('lastName').value
+    const address = document.getElementById('address').value
+    const city = document.getElementById('city').value
+    const email = document.getElementById('email').value
+
+
+    contact = {
+        firstName : firstName,
+        lastName : lastName,
+        address : address,
+        city : city,
+        email : email
+    }
+
+    if( validNameCity(form.firstName) == false){
+        alert("merci de renseigner votre Prénom")
+
+    }else if (validNameCity(form.lastName) == false){
+        alert("merci de renseigner votre Nom")
+
+    }else if (validNameCity(form.city) == false){
+        alert("merci de renseigner votre Ville")
+
+    }else if(validMail(form.email) == false){
+        alert("merci de renseigner votre Email")
+
+    }else if(basket.length == 0){
+        alert("votre panier est vide")
+        
+    }else{
+        saveContact(contact)
+        window.location.assign("confirmation.html")
+    }          
+})
