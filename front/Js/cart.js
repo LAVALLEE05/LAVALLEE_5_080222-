@@ -60,10 +60,10 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
 // suppression du produit en cas de probleme 
 
     if (quantityNumber <= 0 ){
-        removeFromBasket(productID)
+        removeFromcart(productID)
         window.location.assign("cart.html")
     } else if (quantityNumber > 100){
-        removeFromBasket(productID)
+        removeFromcart(productID)
         window.location.assign("cart.html")
     }else {
 
@@ -129,7 +129,7 @@ form.addEventListener("submit", function(e) {
     }else if(validMail(form.email) == false){
         alert("merci de renseigner votre Email")
 
-    }else if(basket.length == 0){
+    }else if(cart.length == 0){
         alert("votre panier est vide")
         
     }else{
