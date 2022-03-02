@@ -1,120 +1,35 @@
-// produits envoyer dans le localstorage
+// recupération du localStorage 
 
-function savecart(cart) {
-    localStorage.setItem("cart", JSON.stringify(cart))
+let product = getproduct()
+
+if(product.length ==  0){
+    alert("votre panier est vide")
 }
 
-// produits récupérer dans le localStorage 
+// création des éléments 
+for (let product ) {
 
-function getcart() {
-    let cart = localStorage.getItem("cart")
-    if (cart == null) {
-        return []
-    } else {
-        return JSON.parse(cart)
-    }
-}
+    document.querySelector("#cart__items").innerHTML +=
 
-// produit choisis ajouté dans le localStorage et verification des doublons 
-
-function addcart(product) {
-    let cart = getcart()
-    let foundProduct = cart.find(p => p.id == product.id) && cart.find(p => p.color == product.color)
-    if (foundProduct != undefined) {
-        foundProduct.quantity += product.quantity
-    } else {
-
-        cart.push(product)
-    }
-
-    savecart(cart)
-}
-
-// suppression du ou des produit(s) choisis du localStorage 
-
-function removeFromcart(product) {
-    let cart = getcart()
-    // a tester 
-    // cart.filter(p => p.id !== product.id && p => p.color !== product.color)
-    cart = cart.filter(p => p.id != product.id)
-    savecart(cart)
-}
-
-// recupération total du ou des produit(s) du localStorage 
-
-function getNumberProduct() {
-    let cart = getcart()
-    let number = 0
-    for (let product of cart) {
-        number += product.quantity
-    }
-    return number
-}
-
-// affichage de la quantité totale 
-
-function setTotalQuantity() {
-    let totalQuantity = document.getElementById('totalQuantity')
-    let newQuantity = document.createTextNode(`${getNumberProduct()}`)
-    if (newQuantity != undefined) {
-        totalQuantity.replaceChild(newQuantity, totalQuantity.childNodes[0])
-
-    } else {
-        totalQuantity.appendChild(newQuantity)
-    }
-}
-
-// affichage du prix total
-
-function setTotalPrice() {
-    let totalPrice = document.getElementById('totalPrice')
-    let newPrice = document.createTextNode(`${getTotalPrice()}`)
-    if (newPrice != undefined) {
-        totalPrice.replaceChild(newPrice, totalPrice.childNodes[0])
-    } else {
-        totalPrice.appendChild(newPrice)
-    }
-}
-
-// ajout de quantité 
-
-function addQuantity(product) {
-    let basket = getBasket()
-    let foundProduct = basket.find(p => p.id == product.id)
-    if (foundProduct != undefined) {
-        foundProduct.quantity = product.quantity
-    }
-    setTotalQuantity()
-    setTotalPrice()
-}
-
-// formulaire de contact
-
-function validNameCity (inputName){
-    let nameRegexp = new RegExp (/^[a-z ,.'-]+$/i)
-
-    let testName = nameRegexp.test(inputName.value)
-    let messageName = inputName.nextElementSibling
-    if(testName){
-        messageName.innerHTML = ""
-        return true
-    }else{
-        messageName.innerHTML = "Invalide"
-        return false
-    }
-}
-
-// regex mail 
-
-function validMail (inputMail){
-    let mailRegexp = new RegExp (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i)
-    let testMail = mailRegexp.test(inputMail.value)
-    let messageMail = inputMail.nextElementSibling
-    if(testMail){
-        messageMail.innerHTML = ""
-        return true
-    }else{
-        messageMail.innerHTML = "Invalide"
-        return false
-    }
+        `<article class="cart__item" data-id="${product.id}" data-color="${product.color} ">
+                            <div class="cart__item__img">
+                              <img src="${product.image}" alt="${product.altTxt} ">
+                            </div>
+                            <div class="cart__item__content">
+                              <div class="cart__item__content__description">
+                                <h2>${product.name} </h2>
+                                <p>${product.color}</p>
+                                <p>${product.price}€</p>
+                              </div>
+                              <div class="cart__item__content__settings">
+                                <div class="cart__item__content__settings__quantity">
+                                  <p>Qté :  </p>
+                                  <input type="number" class="itemQuantity" name="itemQuantity" min="1" max="100" value="${product.quantity}">
+                                </div>
+                                <div class="cart__item__content__settings__delete">
+                                  <p class="deleteItem">Supprimer</p>
+                                </div>
+                              </div>
+                            </div>
+                          </article>`
 }
