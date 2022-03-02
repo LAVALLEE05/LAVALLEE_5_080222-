@@ -76,6 +76,19 @@ function setTotalPrice() {
     }
 }
 
+// ajout de quantité 
+
+function addQuantity(product) {
+    let basket = getBasket()
+    let foundProduct = basket.find(p => p.id == product.id)
+    if (foundProduct != undefined) {
+        foundProduct.quantity = product.quantity
+    }
+    setTotalQuantity()
+    setTotalPrice()
+}
+
+
 
 
 
