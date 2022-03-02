@@ -57,7 +57,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         quantity: quantityNumber
     }
 
-// suppression du produit en cas d'anomalie 
+// suppression du produit en cas de probleme 
 
     if (quantityNumber <= 0 ){
         removeFromBasket(productID)
@@ -66,3 +66,9 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         removeFromBasket(productID)
         window.location.assign("cart.html")
     }else {
+
+        // ajout de la quantité si aucun probleme 
+
+        addQuantity(productID)
+    }
+}))
