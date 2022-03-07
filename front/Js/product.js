@@ -1,4 +1,3 @@
-
 // recupération du produit issu de L'url
 
 let id = (new URL(window.location).searchParams.get("id"));
@@ -56,7 +55,7 @@ if (productId.color == "") {
 
     } else {
 
-        // envoi dans le localStorage et redirection vers le panier 
+// envoi dans le localStorage et redirection vers le panier 
 
         window.location.assign("cart.html")
     }
