@@ -1,8 +1,10 @@
-//* enregistrement du panier dans le localstorage
+// enregistrement du panier dans le localstorage
 
 function saveBasket(basket){
     localstorage.setiTem("basket", JSON.stringify(basket);
 }
+
+// recuperation des produits du localstorage
 
 function getBasket(){
     let basket = localstorage.getItem("basket");
