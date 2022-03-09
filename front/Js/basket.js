@@ -39,6 +39,8 @@ function removeFromBasket(product){
     saveBasket(basket)
 }
 
+// modifier la quantite des produits du panier
+
 function changeQuantity (product,quantity){
     let basket = getbasket();
     let foundProduct = basket.find(p => p.id == product.id);
