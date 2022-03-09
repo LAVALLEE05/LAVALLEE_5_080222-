@@ -3,10 +3,12 @@ function saveBasket(basket){
 }
 
 function getBasket(){
-    localstorage.getItem("basket");
+    return localstorage.getItem("basket");
 } 
 
 function addbasket(product){
     let basket = getbasket();
-    basket.push
+    basket.push(product);
 }
+
+
