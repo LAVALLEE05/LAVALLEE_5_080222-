@@ -37,10 +37,10 @@ function changeQuantity (product,quantity){
     if (foundProduct != undefined) {
         foundProduct.quantity += quantity;
         if (foundProduct.quantity <=0) {
-            removeFromBasket(foundProduct)
-        }
-    } 
+            removeFromBasket(foundProduct);
+
+        } else {
 
     saveBasket(basket);
-
+    }
 }
