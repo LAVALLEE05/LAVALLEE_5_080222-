@@ -53,3 +53,12 @@ function getNumberProduct() {
     }
     return number
 }
+
+function getTotalPrice() {
+    let basket = getBasket()
+    let total = 0
+    for (let product of basket) {
+        total += product.quantity * product.price
+    }
+    return total
+}
