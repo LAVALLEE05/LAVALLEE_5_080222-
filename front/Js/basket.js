@@ -36,8 +36,8 @@ function changeQuantity (product,quantity){
     let foundProduct = basket.find(p => p.id == product.id);
     if (foundProduct != undefined) {
         foundProduct.quantity += quantity;
-        if(foundProduct.quantity <=0){
-            removefromBasket(product)
+        if (foundProduct.quantity <=0) {
+            removeFromBasket(foundProduct)
         }
     } 
 
