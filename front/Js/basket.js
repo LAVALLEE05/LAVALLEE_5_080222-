@@ -13,6 +13,7 @@ function getBasket(){
 
 function addbasket(product){
     let basket = getbasket();
+    let foundProduct = basket.find(p p => p.id == product.id)
     basket.push(product);
     saveBasket(basket);
 }
