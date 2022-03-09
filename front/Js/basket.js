@@ -55,6 +55,8 @@ function changeQuantity (product,quantity){
     }
 }
 
+// total produits dans le panier
+
 function getNumberProduct() {
     let basket = getBasket()
     let number = 0
