@@ -44,3 +44,12 @@ function changeQuantity (product,quantity){
     saveBasket(basket);
     }
 }
+
+function getNumberProduct() {
+    let basket = getBasket()
+    let number = 0
+    for (let product of basket) {
+        number += product.quantity
+    }
+    return number
+}
