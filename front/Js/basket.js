@@ -1,3 +1,5 @@
+//* enregistrement du panier dans le localstorage
+
 function saveBasket(basket){
     localstorage.setiTem("basket", JSON.stringify(basket);
 }
@@ -83,4 +85,4 @@ function setTotalPrice() {
         totalPrice.appendChild(newPrice)
     }
 }
-
+}
