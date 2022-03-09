@@ -1,9 +1,9 @@
 function saveBasket(basket){
-    localstorage.setiTem("basket",basket);
+    localstorage.setiTem("basket", JSON.stringify(basket);
 }
 
 function getBasket(){
-    return localstorage.getItem("basket");
+    return JSON.pars (localstorage.getItem("basket"));
 } 
 
 function addbasket(product){
