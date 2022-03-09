@@ -77,7 +77,7 @@ function getTotalPrice() {
     return total
 }
 
-
+// affichage de la quantité totale du panier
 
 function setTotalQuantity() {
     let totalQuantity = document.getElementById('totalQuantity')
