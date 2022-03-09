@@ -31,4 +31,11 @@ function removeFromBasket(product){
     saveBasket(basket)
 }
 
-function changeQuantity (product,quantity){}
+function changeQuantity (product,quantity){
+    let basket = getbasket();
+    let foundProduct = basket.find(p => p.id == product.id);
+    if (foundProduct != undefined) {
+
+    } else {
+        
+}
