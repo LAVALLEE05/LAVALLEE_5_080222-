@@ -35,7 +35,9 @@ function changeQuantity (product,quantity){
     let basket = getbasket();
     let foundProduct = basket.find(p => p.id == product.id);
     if (foundProduct != undefined) {
+        foundProduct.quantity += quantity
+    } 
 
-    } else {
-        
+    saveBasket(basket);
+
 }
