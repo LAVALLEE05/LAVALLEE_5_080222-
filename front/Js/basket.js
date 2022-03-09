@@ -3,12 +3,18 @@ function saveBasket(basket){
 }
 
 function getBasket(){
-    return JSON.pars (localstorage.getItem("basket"));
+    let basket = localstorage.getItem("basket");
+    if (basket == null) {
+        return [];    
+    }else{
+        JSON.parse (basket);
+    }
 } 
 
 function addbasket(product){
     let basket = getbasket();
     basket.push(product);
+    saveBasket(basket);
 }
 
 
