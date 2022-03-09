@@ -73,3 +73,14 @@ function setTotalQuantity() {
         totalQuantity.appendChild(newQuantity)
     }
 }
+
+function setTotalPrice() {
+    let totalPrice = document.getElementById('totalPrice')
+    let newPrice = document.createTextNode(`${getTotalPrice()}`)
+    if (newPrice != undefined) {
+        totalPrice.replaceChild(newPrice, totalPrice.childNodes[0])
+    } else {
+        totalPrice.appendChild(newPrice)
+    }
+}
+
