@@ -55,7 +55,7 @@ function changeQuantity (product,quantity){
     }
 }
 
-// total produits dans le panier
+// total des produits dans le panier
 
 function getNumberProduct() {
     let basket = getBasket()
@@ -66,6 +66,8 @@ function getNumberProduct() {
     return number
 }
 
+// prix total des produits dans le panier
+
 function getTotalPrice() {
     let basket = getBasket()
     let total = 0
@@ -74,6 +76,8 @@ function getTotalPrice() {
     }
     return total
 }
+
+
 
 function setTotalQuantity() {
     let totalQuantity = document.getElementById('totalQuantity')
