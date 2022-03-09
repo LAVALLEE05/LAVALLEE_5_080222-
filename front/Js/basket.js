@@ -15,6 +15,8 @@ function getBasket(){
     }
 } 
 
+// ajout du produit dans le panier
+
 function addbasket(product){
     let basket = getbasket();
     let foundProduct = basket.find(p => p.id == product.id)
@@ -28,6 +30,8 @@ function addbasket(product){
     }    
     saveBasket(basket);
 }
+
+// suppression des produits du panier
 
 function removeFromBasket(product){
     let basket = getbasket();
