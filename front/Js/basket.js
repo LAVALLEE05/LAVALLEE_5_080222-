@@ -90,6 +90,8 @@ function setTotalQuantity() {
     }
 }
 
+// affichage du prix totale du panier
+
 function setTotalPrice() {
     let totalPrice = document.getElementById('totalPrice')
     let newPrice = document.createTextNode(`${getTotalPrice()}`)
