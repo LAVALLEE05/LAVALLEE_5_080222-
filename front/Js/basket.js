@@ -6,3 +6,7 @@ function getBasket(){
     localstorage.getItem("basket");
 } 
 
+function addbasket(product){
+    let basket = getbasket();
+    basket.push
+}
