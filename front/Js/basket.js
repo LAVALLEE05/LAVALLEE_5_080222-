@@ -62,3 +62,14 @@ function getTotalPrice() {
     }
     return total
 }
+
+function setTotalQuantity() {
+    let totalQuantity = document.getElementById('totalQuantity')
+    let newQuantity = document.createTextNode(`${getNumberProduct()}`)
+    if (newQuantity != undefined) {
+        totalQuantity.replaceChild(newQuantity, totalQuantity.childNodes[0])
+
+    } else {
+        totalQuantity.appendChild(newQuantity)
+    }
+}
