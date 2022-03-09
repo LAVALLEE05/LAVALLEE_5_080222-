@@ -31,3 +31,4 @@ function removeFromBasket(product){
     saveBasket(basket)
 }
 
+function changeQuantity (product,quantity){}
