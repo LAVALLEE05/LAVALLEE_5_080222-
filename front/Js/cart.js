@@ -2,9 +2,9 @@
 
 let basket = getBasket()
 
-if(product.length ==  0){
-    alert("votre panier est vide")
-}
+//if(product.length ==  0){
+//   alert("votre panier est vide")
+// }
 
 // mise à disposition du produit
 
