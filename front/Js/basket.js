@@ -3,7 +3,7 @@
 let monstorage = localstorage;
 
 function saveBasket(basket){
-    monstorage.getItem("basket", JSON.stringify(basket);
+    monstorage.getItem("basket", JSON.stringify(basket));
 }
 
 // recuperation des produits du localstorage
@@ -16,7 +16,7 @@ console.log(localstorage.getItem("basket"));
     if (basket == null) {
         return [];    
     }else{
-        JSON.parse (basket);
+        return JSON.parse(basket);
     }
 } 
 
