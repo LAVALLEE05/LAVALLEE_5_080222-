@@ -24,6 +24,10 @@ document.querySelector("#addToCart").addEventListener("click", function () {
     const quantity = document.getElementById('quantity').value
     const quantityNumber = parseInt(quantity)
 
+console.log('color' + colors);
+
+console.log('quantity' + quantity);
+
     const productId = {
         trueId : id,
         id: id + "_" + colors,

@@ -8,7 +8,6 @@ if(product.length ==  0){
 
 // mise à disposition du produit
 
-
 for (let product of basket) {
 
     document.querySelector("#cart__items").innerHTML +=
@@ -68,7 +67,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         window.location.assign("cart.html")
     }else {
 
-        // ajout de la quantité si aucun probleme 
+// ajout de la quantité si aucun probleme 
 
         addQuantity(productID)
     }
