@@ -61,6 +61,9 @@ if (productId.color == "") {
 
 // envoi dans le localStorage et redirection vers le panier 
 
+console.log(localStorage)
+
+        addbasket(product.Id);
         window.location.assign("cart.html")
     }
 })
