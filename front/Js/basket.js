@@ -1,7 +1,9 @@
 // enregistrement du panier dans le localstorage
 
+let monstorage = localstorage;
+
 function saveBasket(basket){
-    localstorage.setiTem("basket", JSON.stringify(basket);
+    monstorage.setiTem("basket", JSON.stringify(basket);
 }
 
 // recuperation des produits du localstorage
@@ -17,7 +19,7 @@ function getBasket(){
 
 // ajout du produit dans le panier
 
-function addbasket(product){
+function addBasket(product){
     let basket = getbasket();
     let foundProduct = basket.find(p => p.id == product.id)
     if (foundProduct != undefined) {
