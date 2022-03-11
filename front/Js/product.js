@@ -20,6 +20,8 @@ fetch("http://localhost:3000/api/products/" + id)
 
 document.querySelector("#addToCart").addEventListener("click", function () {
 
+console.log('appui sur le bouton');
+
     const colors = document.getElementById('colors').value
     const quantity = document.getElementById('quantity').value
     const quantityNumber = parseInt(quantity)
