@@ -21,6 +21,9 @@ function getBasket(){
 
 function addBasket(product){
     let basket = getBasket();
+
+console.log(basket)
+
     let foundProduct = basket.find(p => p.id == product.id)
     if (foundProduct != undefined) {
         foundProduct.quantity++;
@@ -44,7 +47,10 @@ function removeFromBasket(product){
 // modifier la quantite des produits du panier
 
 function changeQuantity (product,quantity){
-    let basket = getbasket();
+    let basket = getBasket();
+
+console.log(monstorage);
+
     let foundProduct = basket.find(p => p.id == product.id);
     if (foundProduct != undefined) {
         foundProduct.quantity += quantity;
