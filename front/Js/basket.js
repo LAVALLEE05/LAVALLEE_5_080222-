@@ -9,7 +9,7 @@ function saveBasket(basket){
 // recuperation des produits du localstorage
 
 function getBasket(){
-    let basket = localstorage.getItem("basket");
+    let basket = monstorage.getItem("basket");
     if (basket == null) {
         return [];    
     }else{
@@ -20,7 +20,7 @@ function getBasket(){
 // ajout du produit dans le panier
 
 function addBasket(product){
-    let basket = getbasket();
+    let basket = getBasket();
     let foundProduct = basket.find(p => p.id == product.id)
     if (foundProduct != undefined) {
         foundProduct.quantity++;
@@ -36,7 +36,7 @@ function addBasket(product){
 // suppression des produits du panier
 
 function removeFromBasket(product){
-    let basket = getbasket();
+    let basket = getBasket();
     basket = basket.filter(p => p.id != product.id);
     saveBasket(basket)
 }
