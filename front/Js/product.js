@@ -51,11 +51,12 @@ if (productId.color == "") {
 
  } else if (productId.quantity <=0) {
 
- const warning = document.querySelector(".item__content__settings").insertAdjacentHTML("afterbegin", `<style>
+    const warning = document.querySelector(".item__content__settings").insertAdjacentHTML("afterbegin", `<style>
     .item__content__settings{
         background-color:red;
-        
-        )
+    }
+       `)
+       
     alert('merci de choisir une quantitée entre 1 et 100')
 
     } else {
