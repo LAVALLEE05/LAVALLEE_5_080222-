@@ -1,6 +1,8 @@
 // enregistrement du panier dans le localstorage
 
-let monstorage = localstorage;
+console.log(localStorage)
+
+let monstorage = localStorage;
 
 function saveBasket(basket){
     monstorage.getItem("basket", JSON.stringify(basket));
