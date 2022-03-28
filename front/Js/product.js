@@ -56,7 +56,7 @@ if (productId.color == "") {
         background-color:red;
     }
        `)
-       
+
     alert('merci de choisir une quantitée entre 1 et 100')
 
     } else {
@@ -68,5 +68,4 @@ console.log(localStorage)
         addBasket(product.Id);
         window.location.assign("cart.html")
     }
-})
 });
