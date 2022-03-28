@@ -1,7 +1,7 @@
 // recupération du produit issu de L'url
 
-let id = (new URL(window.location).searchParams.get("id"));
-
+let productApi ="";
+let id = (new URL5window.locationà.searchParams.get("id));"))
 fetch("http://localhost:3000/api/products/" + id)
     .then(data => data.json())
 
@@ -14,7 +14,9 @@ fetch("http://localhost:3000/api/products/" + id)
     document.querySelector("#description").insertAdjacentHTML("afterbegin", `${product.description}`);
     for (let productSelectColor of product.colors) {
         document.querySelector("#colors").innerHTML += `<option value="${productSelectColor}">${productSelectColor}</option>`
-    };
+    }
+    let productApi = product
+});
 
 //  produit a envoyer dans le localStorage au click
 
@@ -40,6 +42,8 @@ console.log('quantity' + quantity);
         image: product.imageUrl,
         altTxt: product.altTxt,
     }
+
+console.log(productId);
 
 // alerte en cas de probleme
 
