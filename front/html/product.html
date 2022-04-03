@@ -110,91 +110,10 @@
         </div>
       </div>
     </footer>
+
   <script src="../js/basket.js"></script>
   <script src="../js/cart.js"></script>
   <script src="../js/product.js"></script>
 
-  <script>
-
-// recupération du produit issu de L'url
-
-let productApi ="";
-let id = (new URL5window.locationà.searchParams.get("id));"))
-fetch("http://localhost:3000/api/products/" + id)
-    .then(data => data.json())
-
-// affichage du produit 
-
-.then(product => {
-    document.querySelector(".item__img").insertAdjacentHTML("afterbegin", `<img src="${product.imageUrl}" alt="${product.altTxt}">`);
-    document.querySelector("#title").insertAdjacentHTML("afterbegin", `${product.name}`);
-    document.querySelector("#price").insertAdjacentHTML("afterbegin", `${product.price}`);
-    document.querySelector("#description").insertAdjacentHTML("afterbegin", `${product.description}`);
-    for (let productSelectColor of product.colors) {
-        document.querySelector("#colors").innerHTML += `<option value="${productSelectColor}">${productSelectColor}</option>`
-    }
-    productApi = product
-});
-
-//  produit a envoyer dans le localStorage au click
-
-document.querySelector("#addToCart").addEventListener("click", function () {
-
-console.log('appui sur le bouton');
-
-    const colors = document.getElementById('colors').value
-    const quantity = document.getElementById('quantity').value
-    const quantityNumber = parseInt(quantity)
-
-console.log('color' + colors);
-
-console.log('quantity' + quantity);
-
-    const productId = {
-        trueId : id,
-        id: id + "_" + colors,
-        name: product.name,
-        color: colors,
-        quantity: quantityNumber,
-        price: product.price,
-        image: product.imageUrl,
-        altTxt: product.altTxt,
-    }
-
-console.log(productId);
-
-// alerte en cas de probleme
-
-if (productId.color == "") {
-
- } else if (productId.quantity <=0) {
-
-    const warning = document.querySelector(".item__content__settings").insertAdjacentHTML("afterbegin", `<style>
-    .item__content__settings{
-        background-color:red;
-    }
-       `)
-
-    alert('merci de choisir une quantitée entre 1 et 100')
-
-    } else {
-
-// envoi dans le localStorage et redirection vers le panier 
-
-console.log(localStorage)
-
-        addBasket(product.Id);
-        window.location.assign("cart.html")
-    }
-});
-
-</script>
-
-
-
-
-
-
-
-  </body>
+</body>
 </html>

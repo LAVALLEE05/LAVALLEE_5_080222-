@@ -1,7 +1,7 @@
 // recupération du produit issu de L'url
 
 let productApi ="";
-let id = (new URL5window.locationà.searchParams.get("id));"))
+let id = (new URL(window.location).searchParams.get("id"));
 fetch("http://localhost:3000/api/products/" + id)
     .then(data => data.json())
 
@@ -22,50 +22,53 @@ fetch("http://localhost:3000/api/products/" + id)
 
 document.querySelector("#addToCart").addEventListener("click", function () {
 
-console.log('appui sur le bouton');
-
     const colors = document.getElementById('colors').value
     const quantity = document.getElementById('quantity').value
     const quantityNumber = parseInt(quantity)
-
-console.log('color' + colors);
-
-console.log('quantity' + quantity);
-
     const productId = {
         trueId : id,
         id: id + "_" + colors,
-        name: product.name,
+        name: productApi.name,
         color: colors,
         quantity: quantityNumber,
-        price: product.price,
-        image: product.imageUrl,
-        altTxt: product.altTxt,
+        price: productApi.price,
+        image: productApi.imageUrl,
+        altTxt: productApi.altTxt,
     }
 
-console.log(productId);
+    // alerte en cas de probleme
 
-// alerte en cas de probleme
+    if (productId.color == "") {
 
-if (productId.color == "") {
-
- } else if (productId.quantity <=0) {
-
-    const warning = document.querySelector(".item__content__settings").insertAdjacentHTML("afterbegin", `<style>
-    .item__content__settings{
+    } else if (productId.quantity <=0) {
+      const warning = document.querySelector(".item__content__settings").insertAdjacentHTML("afterbegin", `<style>
+      .item__content__settings{
         background-color:red;
-    }
-       `)
+      }
+      `)
 
-    alert('merci de choisir une quantitée entre 1 et 100')
+      alert('merci de choisir une quantitée entre 1 et 100')
 
     } else {
 
 // envoi dans le localStorage et redirection vers le panier 
+// appel du panier
 
-console.log(localStorage)
+        let basket = JSON.parse(localStorage.getItem("basket"));
 
-        addBasket(product.Id);
+        // recherche dans le panier
+        let foundProduct = basket.find(p => p.id == productId.id)        
+        if (foundProduct != undefined) {
+            foundProduct.quantity++;
+        }else{
+            productId.quantity = 1;
+            basket.push(productId);
+        }    
+
+// sauveagarde panier
+
+        localStorage.setItem("basket", JSON.stringify(basket));
+
         window.location.assign("cart.html")
     }
 });
