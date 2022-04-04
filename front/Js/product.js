@@ -56,7 +56,7 @@ document.querySelector("#addToCart").addEventListener("click", function () {
 
         let basket = JSON.parse(localStorage.getItem("basket"));
 
-        // recherche dans le panier
+// recherche dans le panier
         let foundProduct = basket.find(p => p.id == productId.id)        
         if (foundProduct != undefined) {
             foundProduct.quantity++;
