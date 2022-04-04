@@ -112,10 +112,11 @@ function saveBasket(basket){
           totalPrice.appendChild(newPrice)
       }
   }
-  }
+  
   
   // recupération du localStorage 
   
+  function getBasket() {
   let basket = getBasket()
   
   if(basket.length ==  0){
@@ -251,7 +252,5 @@ function saveBasket(basket){
       }else{
           saveContact(contact)
           window.location.assign("confirmation.html")
-      }          
-  })
-  
-  
+        }
+    });
