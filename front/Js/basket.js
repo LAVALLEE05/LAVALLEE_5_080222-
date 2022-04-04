@@ -46,11 +46,7 @@ console.log(basket)
     saveBasket(basket)
 }
 
-
-
-  
-
-  // modifier la quantite des produits du panier
+// modifier la quantite des produits du panier
   
   function changeQuantity (product,quantity){
     let basket = getBasket();
@@ -115,4 +111,3 @@ function getTotalPrice() {
         totalPrice.appendChild(newPrice)
     }
 });
-
