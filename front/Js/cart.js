@@ -9,15 +9,16 @@ function saveBasket(basket){
   
   function getBasket(){
   
-  console.log(localStorage.getItem("basket"));
+    console.log(localStorage.getItem("basket"));
   
-      let basket = monstorage.getItem("basket");
-      if (basket == null) {
-          return [];    
-      }else{
-          return JSON.parse(basket);
-      }
-  } 
+    let basket = monstorage.getItem("basket");
+    if (basket == null) {
+        return [];    
+    }else{
+        return JSON.parse(basket);
+    }
+} 
+
   
   // ajout du produit dans le panier
   
