@@ -252,5 +252,5 @@ function saveBasket(basket){
       }else{
           saveContact(contact)
           window.location.assign("confirmation.html")
-        }
-    });
+      }
+  });
