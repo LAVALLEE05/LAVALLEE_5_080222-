@@ -11,7 +11,7 @@ function saveBasket(basket){
   
     console.log(localStorage.getItem("basket"));
   
-    let basket = monstorage.getItem("basket");
+    let basket = localStorage.getItem("basket");
     if (basket == null) {
         return [];    
     }else{
