@@ -277,13 +277,13 @@ form.email.addEventListener('change', function(){
     }          
 })
 
-// enregistrement du panier dans le localstorage
+// enregistrement du panier dans le localStorage
 
 function saveBasket(basket){
     localStorage.setItem("basket", JSON.stringify(basket));
 }
 
-// recuperation des produits du localstorage
+// recuperation des produits du localStorage
 
 function getBasket() {
 
@@ -295,6 +295,34 @@ function getBasket() {
     } else {
         return JSON.parse(basket)
     }
+}
+
+// ajout du produit dans le panier - localStorage
+
+function addBasket(product) {
+    let basket = getBasket()
+
+    console.log(basket)
+
+    let foundProduct = basket.find(p => p.id == product.id) 
+    if (foundProduct != undefined) {
+        foundProduct.quantity += product.quantity
+
+    } else {
+
+        product.quantity = 1;
+        basket.push(product)
+    }
+
+    saveBasket(basket)
+}
+
+// suppression des produits du panier - localStorage
+
+function removeFromBasket(product){
+    let basket = getBasket();
+    basket = basket.filter(p => p.id != product.id);
+    saveBasket(basket)
 }
 
 
