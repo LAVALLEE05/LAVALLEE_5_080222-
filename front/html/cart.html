@@ -349,6 +349,20 @@ function getNumberProduct() {
     }
 }
 
+// gestion de l'ajout de quantité 
+
+function addQuantity(product) {
+    let basket = getBasket()
+    let foundProduct = basket.find(p => p.id == product.id)
+    if (foundProduct != undefined) {
+        foundProduct.quantity = product.quantity
+    }
+
+    saveBasket(basket)
+    setTotalQuantity()
+    setTotalPrice()
+}
+
 // affichage du prix total
 
 function setTotalPrice() {
@@ -358,6 +372,54 @@ function setTotalPrice() {
         totalPrice.replaceChild(newPrice, totalPrice.childNodes[0])
     } else {
         totalPrice.appendChild(newPrice)
+    }
+}
+
+// regex nom, prénom et ville
+
+function validNameCity (inputName){
+    let nameRegexp = new RegExp (/^[a-z ,.'-]+$/i)
+
+    let testName = nameRegexp.test(inputName.value)
+    let messageName = inputName.nextElementSibling
+    if(testName){
+        messageName.innerHTML = ""
+        return true
+    }else{
+        messageName.innerHTML = "Invalide"
+        return false
+    }
+}
+
+// regex mail 
+
+  function validMail (inputMail){
+    let mailRegexp = new RegExp (/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i)
+    let testMail = mailRegexp.test(inputMail.value)
+    let messageMail = inputMail.nextElementSibling
+    if(testMail){
+        messageMail.innerHTML = ""
+        return true
+    }else{
+        messageMail.innerHTML = "Invalide"
+        return false
+    }
+}
+
+// envoi de l'objet contact dans le localStorage 
+
+function saveContact(contact){
+    localStorage.setItem("contact", JSON.stringify(contact))
+}
+
+// recupération de l'objet contact du localStorage 
+
+function getContact() {
+    let contact = localStorage.getItem("contact")
+    if (contact == null) {
+        return []
+    } else {
+        return JSON.parse(contact)
     }
 }
 
