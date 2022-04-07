@@ -335,6 +335,18 @@ function getNumberProduct() {
     return number
 }
 
+// récupération du prix total des produits du localStorage 
+
+function getTotalPrice() {
+    let basket = getBasket()
+    let total = 0
+    for (let product of basket) {
+        total += product.quantity * product.price
+    }
+    return total
+}
+
+
  // affichage de la quantité totale du panier
   
  function setTotalQuantity() {
@@ -421,7 +433,6 @@ function getContact() {
         return JSON.parse(contact)
     }
 }
-
   </script>
 
   </body>
