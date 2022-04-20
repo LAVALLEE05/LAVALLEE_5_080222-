@@ -114,7 +114,6 @@
 
 <script>
 
-
 // recupération du produit issu de L'url
 
 let productApi ="";
@@ -181,7 +180,7 @@ document.querySelector("#addToCart").addEventListener("click", function () {
         if (foundProduct != undefined) {
             foundProduct.quantity++;
         }else{
-            productId.quantity = 1;
+            //productId.quantity = 1;
             basket.push(productId);
         }    
 
