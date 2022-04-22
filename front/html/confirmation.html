@@ -79,8 +79,11 @@
 
   <script>
 
-let orderId
-getItem("orderId")
+let orderId = [];
+  if(localStorage.getItem("orderId")) {
+    let orderId = JSON.parse(localStorage.getItem("orderId"));
+  }
+getItem("orderId");
 
 
 function confirmation() {
