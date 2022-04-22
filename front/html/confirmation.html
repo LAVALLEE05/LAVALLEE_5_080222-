@@ -79,7 +79,9 @@
 
   <script>
 
-// recupération des objets demandés pour passer commande 
+let orderId
+getItem("orderId")
+
 
 function confirmation() {
     const confirmNumb = document.getElementById("orderId");
@@ -89,6 +91,7 @@ function confirmation() {
     localStorage.clear();
 }
   confirmation();
+
   </script>
 
   </body>

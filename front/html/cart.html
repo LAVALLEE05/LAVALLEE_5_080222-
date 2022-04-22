@@ -272,6 +272,32 @@ form.email.addEventListener('change', function(){
         
     }else{
         saveContact(contact)
+
+// Appel de l'API pour lui communiquer tous les produits => numero de commande
+
+let products = []
+    
+    let envoiProducts = {contact, products}
+    console.log(envoiProducts);
+
+    fetch("http://localhost:3000/api/products/order"  , {
+        method: "POST",
+        body: JSON.stringify(envoiProducts),
+        headers: {
+            "content-type" : "application/json",
+        }   
+    })
+
+    .then(res => {
+        return res.json();
+    }).then((data) => {
+        let orderId = data.orderId
+       window.location.href= `./confirmation.html?id=${orderId}` ; 
+    console.log(orderId);
+    }).catch((error) =>{
+        console.log(error);
+    })
+
         window.location.assign("confirmation.html")
     }          
 })
