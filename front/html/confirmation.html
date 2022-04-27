@@ -79,11 +79,24 @@
 
   <script>
 
-let orderId = [];
-  if(localStorage.getItem("orderId")) {
-    let orderId = JSON.parse(localStorage.getItem("orderId"));
-  }
-getItem("orderId");
+// envoi des données au serveur
+
+fetch("http://localhost:3000/api/products/order",apiParam )
+ .then(data => data.json())
+
+ // affichage du numéro de commande
+
+ .then (order => {
+     let htmlOrderId = document.getElementById('orderId')
+     let newOrderId = document.createTextNode(`${order.orderId}`)
+    
+    if (newOrderId != undefined) {
+        htmlOrderId.replaceChild(newOrderId, htmlOrderId.childNodes[0])
+
+    } else {
+        htmlOrderId.appendChild(newOrderId)
+    }
+})
 
 
 function confirmation() {
