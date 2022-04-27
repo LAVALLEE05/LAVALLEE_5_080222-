@@ -76,39 +76,16 @@
       </div>
     </footer>
   
+<script>
 
-  <script>
-
-
-
-// envoi des données au serveur
-
-fetch("http://localhost:3000/api/products")
- .then(data => data.json())
-
- // affichage du numéro de commande
-
- .then (order => {
-     let htmlOrderId = document.getElementById('orderId')
-     let newOrderId = document.createTextNode(`${order.orderId}`)
-    
-    if (newOrderId != undefined) {
-        htmlOrderId.replaceChild(newOrderId, htmlOrderId.childNodes[0])
-
-    } else {
-        htmlOrderId.appendChild(newOrderId)
-    }
-})
-
-
-function confirmation() {
-    const confirmNumb = document.getElementById("orderId");
-    confirmNumb.innerText = localStorage.getItem("orderId");
-    console.log("Id de la commande =");
-    console.log(localStorage.getItem("orderId"));
-    localStorage.clear();
-}
-  confirmation();
+    function confirmation() {
+      const confirmNumb = document.getElementById("orderId");
+      confirmNumb.innerText = localStorage.getItem("orderId");
+      console.log("Id de la commande =");
+      console.log(localStorage.getItem("orderId"));
+      localStorage.clear();
+  }
+    confirmation();
 
   </script>
 

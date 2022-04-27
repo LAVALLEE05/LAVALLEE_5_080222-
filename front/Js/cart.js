@@ -141,26 +141,24 @@ let products = []
     let envoiProducts = {contact, products}
     console.log(envoiProducts);
 
-    fetch("http://localhost:3000/api/products/order"  , {
+    fetch("http://localhost:3000/api/products/order"  , {    
         method: "POST",
-        body: JSON.stringify(envoiProducts),
-        headers: {
-            "content-type" : "application/json",
-        }   
-    })
+        body: JSON.stringify(envoiProducts),        
+        headers: {            
+             "content-type" : "application/json",        
+        }        
+    })      
 
     .then(res => {
         return res.json();
     }).then((data) => {
-        let orderId = data.orderId
-       window.location.href= `./confirmation.html?id=${orderId}` ; 
-    console.log(orderId);
+        localStorage.setItem("orderId", data.orderId);
     }).catch((error) =>{
         console.log(error);
     })
 
-        window.location.assign("confirmation.html")
-    }          
+    window.location.assign("confirmation.html")
+    }
 })
 
 // enregistrement du panier dans le localStorage
