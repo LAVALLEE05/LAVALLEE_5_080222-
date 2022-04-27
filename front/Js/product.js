@@ -54,14 +54,17 @@ document.querySelector("#addToCart").addEventListener("click", function () {
 // envoi dans le localStorage et redirection vers le panier 
 // appel du panier
 
-        let basket = JSON.parse(localStorage.getItem("basket"));
+  let basket = [];
+  if(localStorage.getItem("basket")) {
+    let basket = JSON.parse(localStorage.getItem("basket"));
+  }
 
 // recherche dans le panier
         let foundProduct = basket.find(p => p.id == productId.id)        
         if (foundProduct != undefined) {
             foundProduct.quantity++;
         }else{
-            productId.quantity = 1;
+            //productId.quantity = 1;
             basket.push(productId);
         }    
 
