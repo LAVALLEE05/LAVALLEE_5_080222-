@@ -187,6 +187,7 @@ function addBasket(product) {
     let basket = getBasket()
 
     console.log(basket)
+    console.log(localStorage)
 
     let foundProduct = basket.find(p => p.id == product.id) 
     if (foundProduct != undefined) {
