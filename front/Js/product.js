@@ -64,7 +64,7 @@ document.querySelector("#addToCart").addEventListener("click", function () {
 // recherche dans le panier
         let foundProduct = basket.find(p => p.id == productId.id)        
         if (foundProduct != undefined) {
-            foundProduct.quantity++;
+          foundProduct.quantity += productId.quantity
         }else{
             //productId.quantity = 1;
             basket.push(productId);
