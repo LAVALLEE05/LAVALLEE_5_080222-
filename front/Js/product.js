@@ -36,7 +36,7 @@ document.querySelector("#addToCart").addEventListener("click", function () {
         altTxt: productApi.altTxt,
     }
 
-    // alerte en cas de probleme
+// alerte en cas de probleme
 
     if (productId.color == "") {
 
@@ -59,14 +59,11 @@ document.querySelector("#addToCart").addEventListener("click", function () {
 
   let basket = JSON.parse(localStorage.getItem("basket"));
 
- 
-
 // recherche dans le panier
         let foundProduct = basket.find(p => p.id == productId.id)        
         if (foundProduct != undefined) {
           foundProduct.quantity += productId.quantity
         }else{
-            //productId.quantity = 1;
             basket.push(productId);
         }    
 

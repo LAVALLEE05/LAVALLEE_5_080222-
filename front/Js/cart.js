@@ -139,7 +139,7 @@ form.email.addEventListener('change', function(){
 let products = []
     
     let envoiProducts = {contact, products}
-    console.log(envoiProducts);
+    
 
     fetch("http://localhost:3000/api/products/order"  , {    
         method: "POST",
@@ -171,8 +171,6 @@ function saveBasket(basket){
 
 function getBasket() {
 
-console.log(localStorage.getItem("basket"));
-
 let basket = localStorage.getItem("basket")
   if (basket == null) {
       return []
@@ -185,10 +183,6 @@ let basket = localStorage.getItem("basket")
 
 function addBasket(product) {
     let basket = getBasket()
-
-    console.log(basket)
-    console.log(localStorage)
-
     let foundProduct = basket.find(p => p.id == product.id) 
     if (foundProduct != undefined) {
         foundProduct.quantity += product.quantity
@@ -233,7 +227,7 @@ function getTotalPrice() {
 }
 
 
- // affichage de la quantité totale du panier
+// affichage de la quantité totale du panier
   
  function setTotalQuantity() {
     let totalQuantity = document.getElementById('totalQuantity')
