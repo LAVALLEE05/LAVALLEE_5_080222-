@@ -39,7 +39,7 @@ for (let product of basket) {
 
 totalPriceApi(basket) {
     let priceTotal = 0; 
-    for (let product of basket)   
+    for (let product of basket)  {
 
 
         fetch("http://localhost:3000/api/products/order", {
@@ -63,6 +63,15 @@ totalPriceApi(basket) {
 
     let totalPrice = document.getElementById('totalPrice')
     let newPrice = document.createTextNode(priceTotal)
+}
+
+function totalpricequantity(){
+    var prix = quantity(document.getElementById("forme").value);
+
+    var quantity = quantity(document.getElementById("qte").value);
+
+    var amount = Number(price * quantity);
+    document.getElementById("amount").value = amount;
 }
 
 // suppression du produit au click 
