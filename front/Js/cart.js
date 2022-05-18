@@ -66,9 +66,9 @@ totalPriceApi(basket) {
 }
 
 function totalpricequantity(){
-    var prix = quantity(document.getElementById("forme").value);
+    var price = quantity(document.getElementById("form").value);
 
-    var quantity = quantity(document.getElementById("qte").value);
+    var quantity = quantity(document.getElementById("quantity").value);
 
     var amount = Number(price * quantity);
     document.getElementById("amount").value = amount;
