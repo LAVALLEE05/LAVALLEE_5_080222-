@@ -35,6 +35,36 @@ for (let product of basket) {
                           </article>`
 }
 
+// Appel de l'API pour le prix total//
+
+totalPriceApi(basket) {
+    let priceTotal = 0; 
+    for (let product of basket)   
+
+
+        fetch("http://localhost:3000/api/products/order", {
+            method: "POST",
+            body: JSON.stringify(envoiProducts),
+            headers: {
+                "content-type": "application/json",
+            }
+        })
+
+            .then(res => {
+                return res.json();
+            }).then((data) => {
+                window.location.assign("confirmation.html?orderId=" + data.orderId)
+            }).catch((error) => {
+                console.log(error);
+            })
+    }
+
+    console.log(totalPrice);
+
+    let totalPrice = document.getElementById('totalPrice')
+    let newPrice = document.createTextNode(priceTotal)
+}
+
 // suppression du produit au click 
 
 document.querySelectorAll(".deleteItem").forEach(item => item.addEventListener("click", (e) => {
@@ -57,7 +87,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         quantity: quantityNumber
     }
 
-// suppression du produit en cas de probleme 
+    // suppression du produit en cas de probleme 
 
     if (quantityNumber <= 0) {
         removeFromcart(productID)
@@ -67,7 +97,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         window.location.assign("cart.html")
     } else {
 
-// ajout de la quantité si aucun probleme 
+        // ajout de la quantité si aucun probleme 
 
         addQuantity(productID)
     }
