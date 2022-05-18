@@ -37,7 +37,16 @@ for (let product of basket) {
 
 // Appel de l'API pour le prix total//
 
-totalPriceApi(basket) {
+function totalPriceApi() {
+    let basket = getBasket()
+    let total = 0
+    for (let product of basket) {
+        total += product.quantity * product.price
+    }
+    return total
+}
+
+totalPriceApi(basket); {
     let priceTotal = 0; 
     for (let product of basket)  {
 
