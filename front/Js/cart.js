@@ -74,14 +74,6 @@ totalPriceApi(basket); {
     let newPrice = document.createTextNode(priceTotal)
 }
 
-function totalpricequantity(){
-    var price = quantity(document.getElementById("form").value);
-
-    var quantity = quantity(document.getElementById("quantity").value);
-
-    var amount = Number(price * quantity);
-    document.getElementById("amount").value = amount;
-}
 
 // suppression du produit au click 
 
