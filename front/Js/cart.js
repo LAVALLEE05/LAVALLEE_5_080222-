@@ -40,7 +40,7 @@ for (let product of basket) {
 function totalPriceApi() {
     let basket = getBasket()
     let total = 0
-    for (let product of basket) {
+    for (let price of basket) {
         total += product.quantity * product.price
     }
     return total
