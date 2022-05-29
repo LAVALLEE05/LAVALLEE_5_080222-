@@ -49,10 +49,10 @@ function totalPrice () {
     if (productArray.length === 0) {
         totalPrice.innerText = '0';
     } else {
-        for (let price of productArray) {
-            let productPrice = price.product;
+        for (let price of product) {
+            let productprice = price.product;
             let prix = parseInt(productsPrice, 10);
-            price += (prix * price.product.Quantity);
+            price += (prix * product.Quantity);
             totalPrice.innerText = price;
         }
     }
