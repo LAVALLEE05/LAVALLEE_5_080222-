@@ -37,12 +37,14 @@ for (let product of basket) {
 
 // Appel de l'API pour le prix total//
 
+let totalPrice = document.getElementById('totalPrice');
+
 function getArticle(productID){
     return fetch("http://localhost:3000/api/products/$"{productID})
     .then((data) => data.json())
     .catch(function (error) { console.log(error)})
 
-    let totalPrice = document.getElementById('totalPrice');
+    
 
 function totalPrice () {
     let price = 0;
@@ -60,9 +62,6 @@ function totalPrice () {
 
 
    
-    
-
-
 
 
 
