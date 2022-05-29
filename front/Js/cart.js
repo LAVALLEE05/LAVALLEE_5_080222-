@@ -44,7 +44,8 @@ function getArticle(productID){
 
     qty += articlequantity
         total +=article.quantity * article.price
-    }
+
+    })
 
 
    
