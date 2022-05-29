@@ -37,42 +37,20 @@ for (let product of basket) {
 
 // Appel de l'API pour le prix total//
 
-function totalPriceApi() {
-    let basket = getBasket()
-    let total = 0
-    for (let price of basket) {
-        total += product.quantity * product.price
-    }
-    return total
-}
+fetch(
+    `http://localhost:3000/api/products{article.id}`
+  )
+    .then((res) => res.json())
+    .then((data) => (article.price = data.price))
+    .catch((err) => console.log(err));
 
-totalPriceApi(basket); {
-    let priceTotal = 0; 
-    for (let product of basket)  {
+    qty += article.quantity;
+        total += article.quantity * article.price;
+    
 
 
-        fetch("http://localhost:3000/api/products/order", {
-            method: "POST",
-            body: JSON.stringify(envoiProducts),
-            headers: {
-                "content-type": "application/json",
-            }
-        })
 
-            .then(res => {
-                return res.json();
-            }).then((data) => {
-                window.location.assign("confirmation.html?orderId=" + data.orderId)
-            }).catch((error) => {
-                console.log(error);
-            })
-    }
 
-    console.log(totalPrice);
-
-    let totalPrice = document.getElementById('totalPrice')
-    let newPrice = document.createTextNode(priceTotal)
-}
 
 
 // suppression du produit au click 
