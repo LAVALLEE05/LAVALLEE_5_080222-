@@ -37,17 +37,13 @@ for (let product of basket) {
 
 // Appel de l'API pour le prix total//
 
-fetch(
-    `http://localhost:3000/api/products`
-  )
-    .then((res) => res.json())
-    .then((data) => (article.price = data.price))
-    .catch((err) => console.log(err));
-
-    qty += article.quantity;
-        total += article.quantity * article.price;
+function getArticle(productID){
+    return fetch(http://localhost:3000/api/products/${productID})
+    .then((data) => data.json())
+    .catch(function (error) { console.log(error)})
+    }
+   
     
-
 
 
 
