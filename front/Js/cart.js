@@ -44,17 +44,15 @@ function getArticle(productID){
     .then((data) => data.json())
     .catch(function (error) { console.log(error)})
 
-    
-
 function totalPrice () {
     let price = 0;
     if (productArray.length === 0) {
         totalPrice.innerText = '0';
     } else {
         for (let price of productArray) {
-            let productsPrice = price.productPrice;
+            let productPrice = price.product;
             let prix = parseInt(productsPrice, 10);
-            priceSum += (prix * price.productQuantity);
+            price += (prix * price.product.Quantity);
             totalPrice.innerText = price;
         }
     }
