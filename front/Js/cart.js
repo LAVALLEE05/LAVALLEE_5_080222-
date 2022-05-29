@@ -38,14 +38,25 @@ for (let product of basket) {
 // Appel de l'API pour le prix total//
 
 function getArticle(productID){
-    return fetch(http://localhost:3000/api/products/${productID})
+    return fetch("http://localhost:3000/api/products/$"{productID})
     .then((data) => data.json())
     .catch(function (error) { console.log(error)})
 
-    qty += articlequantity
-        total +=article.quantity * article.price
+    let totalPrice = document.getElementById('totalPrice');
 
-    })
+function totalPrice () {
+    let price = 0;
+    if (productArray.length === 0) {
+        totalPrice.innerText = '0';
+    } else {
+        for (let price of productArray) {
+            let productsPrice = price.productPrice;
+            let prix = parseInt(productsPrice, 10);
+            priceSum += (prix * price.productQuantity);
+            totalPrice.innerText = price;
+        }
+    }
+}
 
 
    
