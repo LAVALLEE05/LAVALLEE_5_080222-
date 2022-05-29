@@ -38,7 +38,7 @@ for (let product of basket) {
 // Appel de l'API pour le prix total//
 
 fetch(
-    `http://localhost:3000/api/products{article.id}`
+    `http://localhost:3000/api/products`
   )
     .then((res) => res.json())
     .then((data) => (article.price = data.price))
