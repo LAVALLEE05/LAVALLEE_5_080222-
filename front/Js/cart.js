@@ -6,10 +6,10 @@ if (basket.length == 0) {
     alert("votre panier est vide")
 }
 
-// mise à disposition du produit
+// mise à disposition du produit 
 
+let price = 0;
 for (let product of basket) {
-
     document.querySelector("#cart__items").innerHTML +=
 
         `<article class="cart__item" data-id="${product.id}" data-color="${product.color} ">
@@ -32,35 +32,23 @@ for (let product of basket) {
                                 </div>
                               </div>
                             </div>
-                          </article>`
-}
+                          </article>`;
+    
+    let id = product.trueId;
+    fetch("http://localhost:3000/api/products/" + id)
+    .then((response) => {
+        return response.json();
+      })
+    .then((object) => {
+        price = price + (object.price * product.quantity);
+        // quantity = quantity + product.quantity;
 
-// Appel de l'API pour le prix total//
-
-let totalPrice = document.getElementById('totalPrice');
-
-function getArticle(productID){
-    return fetch("http://localhost:3000/api/products/$"{productID})
-    .then((data) => data.json())
+        console.log(price);
+        let totalPrice = document.getElementById('totalPrice');
+        totalPrice.innerText = price;
+    })
     .catch(function (error) { console.log(error)})
-
-function totalPrice () {
-    let price = 0;
-    if (productArray.length === 0) {
-        totalPrice.innerText = '0';
-    } else {
-        for (let price of product) {
-            let productprice = price.product;
-            let prix = parseInt(productsPrice, 10);
-            price += (prix * product.Quantity);
-            totalPrice.innerText = price;
-        }
-    }
 }
-
-
-   
-
 
 
 // suppression du produit au click 
