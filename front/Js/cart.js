@@ -41,7 +41,12 @@ function getArticle(productID){
     return fetch(http://localhost:3000/api/products/${productID})
     .then((data) => data.json())
     .catch(function (error) { console.log(error)})
+
+    qty += articlequantity
+        total +=article.quantity * article.price
     }
+
+
    
     
 
