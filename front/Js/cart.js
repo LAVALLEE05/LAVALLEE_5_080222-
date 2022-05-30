@@ -49,28 +49,7 @@ for (let product of basket) {
     })
     .catch(function (error) { console.log(error)})
 }
-
-let article = document.getElementsByClassName("total");
-    
-fetch("http://localhost:3000/api/products/" + article)
-.then((response) => {
-    return response.json();
-  })
-
-  var articles = JSON.parse(localStorage.getItem("basket"));
-
-  if (articles !== null) {
-    for (let article of articles) {
-        fetch("http://localhost:3000/api/products/" + details)
-            .then((resp) => resp.json())
-                        .then((details) => {
-                            return response.json();
-                        })   
-
-
   
-
-
 // suppression du produit au click 
 
 document.querySelectorAll(".deleteItem").forEach(item => item.addEventListener("click", (e) => {
@@ -96,7 +75,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
     // suppression du produit en cas de probleme 
 
     if (quantityNumber <= 0) {
-        removeFromcart(productID)
+        removeFromcart(product.ID)
         window.location.assign("cart.html")
     } else if (quantityNumber > 100) {
         removeFromcart(productID)
@@ -107,6 +86,26 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
 
         addQuantity(productID)
     }
+
+    console.log(basket);
+
+    for (let product of basket) {
+        let id = product.trueId;
+        fetch("http://localhost:3000/api/products/" + id)
+        .then((response) => {
+            return response.json();
+          })
+        .then((object) => {
+            price = price + (object.price * product.quantity);
+            // quantity = quantity + product.quantity;
+    
+            console.log(price);
+            let totalPrice = document.getElementById('totalPrice');
+            totalPrice.innerText = price;
+        })
+        .catch(function (error) { console.log(error)})
+    }
+      
 }))
 
 // affichage de la quantité et du prix total
@@ -346,4 +345,4 @@ function getContact() {
     } else {
         return JSON.parse(contact)
     }
-}
+};
