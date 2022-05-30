@@ -59,7 +59,13 @@ fetch("http://localhost:3000/api/products/" + article)
 
   var articles = JSON.parse(localStorage.getItem("basket"));
 
-  
+  if (articles !== null) {
+    for (let article of articles) {
+        fetch("http://localhost:3000/api/products/" + details)
+            .then((resp) => resp.json())
+                        .then((details) => {
+                            return response.json();
+                        })   
 
 
   
