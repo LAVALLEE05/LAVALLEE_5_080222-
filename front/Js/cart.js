@@ -54,12 +54,12 @@ var articles = JSON.parse(localStorage.getItem("basket"));
 if (articles !== null) {
     for (let article of articles) {
        
-        fetch(http://localhost:3000/api/products/${article.model})
+        fetch("http://localhost:3000/api/products/" + articles)
             .then((resp) => resp.json())
                         .then((details) => {
 
                             let productPrice = document.createElement("p");
-                            productPrice.innerText = ${details.price}€; //API ici
+                            productPrice.innerText = ${details.price}€;
                             divDescription.appendChild(productPrice);
 
 
