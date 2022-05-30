@@ -6,7 +6,7 @@ if (basket.length == 0) {
     alert("votre panier est vide")
 }
 
-// mise à disposition du produit 
+// Mise à disposition du produit / Appel de l'API / prix total
 
 let price = 0;
 for (let product of basket) {
@@ -49,6 +49,19 @@ for (let product of basket) {
     })
     .catch(function (error) { console.log(error)})
 }
+
+var articles = JSON.parse(localStorage.getItem("basket"));
+if (articles !== null) {
+    for (let article of articles) {
+       
+        fetch(http://localhost:3000/api/products/${article.model})
+            .then((resp) => resp.json())
+                        .then((details) => {
+
+                            let productPrice = document.createElement("p");
+                            productPrice.innerText = ${details.price}€; //API ici
+                            divDescription.appendChild(productPrice);
+
 
 
 // suppression du produit au click 
