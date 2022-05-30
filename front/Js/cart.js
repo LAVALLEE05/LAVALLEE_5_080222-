@@ -50,18 +50,19 @@ for (let product of basket) {
     .catch(function (error) { console.log(error)})
 }
 
-var articles = JSON.parse(localStorage.getItem("basket"));
-if (articles !== null) {
-    for (let article of articles) {
-       
-        fetch("http://localhost:3000/api/products/" + articles)
-            .then((resp) => resp.json())
-                        .then((details) => {
+let article = document.getElementsByClassName("total");
+    
+fetch("http://localhost:3000/api/products/" + article)
+.then((response) => {
+    return response.json();
+  })
 
-                            let productPrice = document.createElement("p");
-                            productPrice.innerText = ${details.price}€;
-                            divDescription.appendChild(productPrice);
+  var articles = JSON.parse(localStorage.getItem("basket"));
 
+  
+
+
+  
 
 
 // suppression du produit au click 
