@@ -20,7 +20,6 @@ for (let product of basket) {
                               <div class="cart__item__content__description">
                                 <h2>${product.name} </h2>
                                 <p>${product.color}</p>
-                                
                               </div>
                               <div class="cart__item__content__settings">
                                 <div class="cart__item__content__settings__quantity">
@@ -86,6 +85,9 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
 
         addQuantity(productID)
     }
+
+    basket = getBasket();
+    price = 0;
 
     console.log(basket);
 
