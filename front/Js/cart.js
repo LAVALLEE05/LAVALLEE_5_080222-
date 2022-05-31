@@ -20,7 +20,7 @@ for (let product of basket) {
                               <div class="cart__item__content__description">
                                 <h2>${product.name} </h2>
                                 <p>${product.color}</p>
-                                <p>${product.price}€</p>
+                                
                               </div>
                               <div class="cart__item__content__settings">
                                 <div class="cart__item__content__settings__quantity">
@@ -33,23 +33,23 @@ for (let product of basket) {
                               </div>
                             </div>
                           </article>`;
-    
+
     let id = product.trueId;
     fetch("http://localhost:3000/api/products/" + id)
-    .then((response) => {
-        return response.json();
-      })
-    .then((object) => {
-        price = price + (object.price * product.quantity);
-        // quantity = quantity + product.quantity;
+        .then((response) => {
+            return response.json();
+        })
+        .then((object) => {
+            price = price + (object.price * product.quantity);
+            // quantity = quantity + product.quantity;
 
-        console.log(price);
-        let totalPrice = document.getElementById('totalPrice');
-        totalPrice.innerText = price;
-    })
-    .catch(function (error) { console.log(error)})
+            console.log(price);
+            let totalPrice = document.getElementById('totalPrice');
+            totalPrice.innerText = price;
+        })
+        .catch(function (error) { console.log(error) })
 }
-  
+
 // suppression du produit au click 
 
 document.querySelectorAll(".deleteItem").forEach(item => item.addEventListener("click", (e) => {
@@ -72,7 +72,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         quantity: quantityNumber
     }
 
-    // suppression du produit en cas de probleme 
+// suppression du produit en cas de probleme 
 
     if (quantityNumber <= 0) {
         removeFromcart(product.ID)
@@ -82,7 +82,7 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
         window.location.assign("cart.html")
     } else {
 
-        // ajout de la quantité si aucun probleme 
+// ajout de la quantité si aucun probleme 
 
         addQuantity(productID)
     }
@@ -92,20 +92,20 @@ document.querySelectorAll(".itemQuantity").forEach(item => item.addEventListener
     for (let product of basket) {
         let id = product.trueId;
         fetch("http://localhost:3000/api/products/" + id)
-        .then((response) => {
-            return response.json();
-          })
-        .then((object) => {
-            price = price + (object.price * product.quantity);
-            // quantity = quantity + product.quantity;
-    
-            console.log(price);
-            let totalPrice = document.getElementById('totalPrice');
-            totalPrice.innerText = price;
-        })
-        .catch(function (error) { console.log(error)})
+            .then((response) => {
+                return response.json();
+            })
+            .then((object) => {
+                price = price + (object.price * product.quantity);
+                // quantity = quantity + product.quantity;
+
+                console.log(price);
+                let totalPrice = document.getElementById('totalPrice');
+                totalPrice.innerText = price;
+            })
+            .catch(function (error) { console.log(error) })
     }
-      
+
 }))
 
 // affichage de la quantité et du prix total
@@ -169,7 +169,7 @@ form.addEventListener("submit", function (e) {
     } else {
         saveContact(contact)
 
-        // Appel de l'API pour lui communiquer tous les produits => numero de commande
+// Appel de l'API pour lui communiquer tous les produits => numero de commande
 
         let products = []
 
